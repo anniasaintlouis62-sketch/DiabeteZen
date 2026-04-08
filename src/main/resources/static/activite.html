@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activite / Aktivite — DiabeteZen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="page-app">
+<div class="app-shell">
+    <aside id="dz-sidebar" class="sidebar"></aside>
+    <div class="app-main">
+        <header class="page-header">
+            <h1 class="page-header__title">Activite / Aktivite</h1>
+            <p class="page-header__sub">Sport, marche et efforts du quotidien / Espò, mache ak efò chak jou.</p>
+        </header>
+        <div class="app-content">
+            <p id="messageBox" class="message hidden"></p>
+            <section class="card card--elevated">
+                <h2 class="card__title">Nouvelle activite / Nouvo aktivite</h2>
+                <form id="activityForm" class="stack">
+                    <div class="form-row">
+                        <label class="field-label">Debut / Kòmansman
+                            <input type="datetime-local" id="activityStartedAt" required>
+                        </label>
+                        <label class="field-label">Duree (minutes) / Dire (minit)
+                            <input type="number" id="activityDuration" min="1" step="1" required value="30">
+                        </label>
+                    </div>
+                    <label class="field-label">Type / Kalite
+                        <input type="text" id="activityType" required placeholder="Marche, velo, natation / Mache, velo, naje">
+                    </label>
+                    <label class="field-label">Intensite / Entansite
+                        <select id="activityIntensity" required>
+                            <option value="low">Legere / Lèjè</option>
+                            <option value="moderate" selected>Moderee / Modere</option>
+                            <option value="high">Intense / Entans</option>
+                        </select>
+                    </label>
+                    <label class="field-label">Note / Not
+                        <input type="text" id="activityNote" placeholder="Optionnel / Opsyonèl">
+                    </label>
+                    <button class="btn btn--cta" type="submit">Enregistrer / Anrejistre</button>
+                </form>
+            </section>
+            <section class="card card--elevated">
+                <div class="card__head">
+                    <h2 class="card__title">Historique / Istwa</h2>
+                    <div class="card__actions">
+                        <button id="exportActivitiesPdfBtn" type="button" class="btn btn--secondary btn--sm">Exporter PDF / Ekspo PDF</button>
+                        <button id="refreshActivitiesBtn" type="button" class="btn btn--secondary btn--sm">Rafraichir / Rafrechi</button>
+                    </div>
+                </div>
+                <div id="activitiesEmpty" class="empty-state">Aucune activite. / Pa gen aktivite.</div>
+                <div class="table-wrap">
+                    <table id="activitiesTable" class="data-table hidden">
+                        <thead>
+                        <tr>
+                            <th>Debut / Kòmansman</th>
+                            <th>Duree / Dire</th>
+                            <th>Type / Kalite</th>
+                            <th>Intensite / Entansite</th>
+                        </tr>
+                        </thead>
+                        <tbody id="activitiesBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="/common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
+<script src="/pdf-export.js"></script>
+<script src="/nav.js"></script>
+<script src="/activite.js"></script>
+</body>
+</html>

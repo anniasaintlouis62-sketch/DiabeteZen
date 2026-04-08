@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traitements / Tretman — DiabeteZen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="page-app">
+<div class="app-shell">
+    <aside id="dz-sidebar" class="sidebar"></aside>
+    <div class="app-main">
+        <header class="page-header">
+            <h1 class="page-header__title">Traitements / Tretman</h1>
+            <p class="page-header__sub">Medicaments, insuline et journal des prises / Medikaman, ensilin ak jounal pran medikaman.</p>
+        </header>
+        <div class="app-content">
+            <p id="messageBox" class="message hidden"></p>
+            <section class="card card--elevated">
+                <h2 class="card__title">Ajouter un traitement / Ajoute yon tretman</h2>
+                <form id="medicationForm" class="stack">
+                    <label class="field-label">Nom / Non
+                        <input type="text" id="medName" required>
+                    </label>
+                    <label class="field-label">Forme / Fòm
+                        <select id="medForm" required>
+                            <option value="tablet">Comprime / Konprime</option>
+                            <option value="injection">Injection / Enjeksyon</option>
+                            <option value="insulin">Insuline / Ensilin</option>
+                            <option value="other">Autre / Lòt</option>
+                        </select>
+                    </label>
+                    <label class="field-label">Dosage prescrit / Doz preskri
+                        <input type="text" id="medDosage" required placeholder="Ex. 500 mg">
+                    </label>
+                    <label class="field-label">Planning (JSON) / Planifikasyon (JSON)
+                        <textarea id="medSchedule" rows="3" class="code-input" placeholder='{"times":["08:00","20:00"]}' required>{}</textarea>
+                    </label>
+                    <button class="btn btn--cta" type="submit">Ajouter / Ajoute</button>
+                </form>
+            </section>
+            <section class="card card--elevated">
+                <h2 class="card__title">Enregistrer une prise / Anrejistre yon pran</h2>
+                <form id="medLogForm" class="stack">
+                    <label class="field-label">Traitement / Tretman
+                        <select id="medLogMedicationId" required></select>
+                    </label>
+                    <label class="field-label">Date et heure / Dat ak lè
+                        <input type="datetime-local" id="medLogTakenAt" required>
+                    </label>
+                    <label class="field-label">Dose prise / Doz pran
+                        <input type="text" id="medLogDose" placeholder="Optionnel / Opsyonèl">
+                    </label>
+                    <label class="field-label">Statut / Estati
+                        <select id="medLogStatus" required>
+                            <option value="taken">Pris / Pran</option>
+                            <option value="missed">Oublie / Bliye</option>
+                            <option value="partial">Partiel / Pasyèl</option>
+                        </select>
+                    </label>
+                    <label class="field-label">Note / Not
+                        <input type="text" id="medLogNote" placeholder="Optionnel / Opsyonèl">
+                    </label>
+                    <button class="btn btn--cta" type="submit">Enregistrer la prise / Anrejistre pran an</button>
+                </form>
+            </section>
+            <section class="card card--elevated">
+                <div class="card__head">
+                    <h2 class="card__title">Mes traitements / Tretman mwen</h2>
+                    <div class="card__actions">
+                        <button id="exportMedicationsPdfBtn" type="button" class="btn btn--secondary btn--sm">PDF traitements / PDF tretman</button>
+                        <button id="refreshMedicationsBtn" type="button" class="btn btn--secondary btn--sm">Tout rafraichir / Rafrechi tout</button>
+                    </div>
+                </div>
+                <div id="medicationsEmpty" class="empty-state">Aucun traitement. / Pa gen tretman.</div>
+                <div class="table-wrap">
+                    <table id="medicationsTable" class="data-table hidden">
+                        <thead>
+                        <tr>
+                            <th>Nom / Non</th>
+                            <th>Forme / Fòm</th>
+                            <th>Dosage / Doz</th>
+                        </tr>
+                        </thead>
+                        <tbody id="medicationsBody"></tbody>
+                    </table>
+                </div>
+                <div class="card__head card__head--sub">
+                    <h3 class="subsection-title">Journal des prises / Jounal pran</h3>
+                    <button id="exportMedLogsPdfBtn" type="button" class="btn btn--secondary btn--sm">PDF prises / PDF pran</button>
+                </div>
+                <div id="medLogsEmpty" class="empty-state">Aucune prise enregistree. / Pa gen pran anrejistre.</div>
+                <div class="table-wrap">
+                    <table id="medLogsTable" class="data-table hidden">
+                        <thead>
+                        <tr>
+                            <th>Date / Dat</th>
+                            <th>Traitement / Tretman</th>
+                            <th>Dose / Doz</th>
+                            <th>Statut / Estati</th>
+                        </tr>
+                        </thead>
+                        <tbody id="medLogsBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="/common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
+<script src="/pdf-export.js"></script>
+<script src="/nav.js"></script>
+<script src="/traitements.js"></script>
+</body>
+</html>

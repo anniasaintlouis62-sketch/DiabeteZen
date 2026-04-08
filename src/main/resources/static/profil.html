@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil — DiabeteZen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="page-app">
+<div class="app-shell">
+    <aside id="dz-sidebar" class="sidebar"></aside>
+    <div class="app-main">
+        <header class="page-header">
+            <h1 class="page-header__title">Profil / Pwofil</h1>
+            <p class="page-header__sub">Seuils d'alerte glycemie, rappels navigateur et export de vos donnees. / Seuil alèt glisemi, rapèl navigatè, ekspo done w.</p>
+        </header>
+        <div class="app-content">
+            <p id="messageBox" class="message hidden"></p>
+
+            <section class="card card--elevated">
+                <h2 class="card__title">Identite / Idantite</h2>
+                <form id="profilForm" class="stack">
+                    <label class="field-label">Nom complet / Non konplè
+                        <input type="text" id="profilName" required maxlength="120">
+                    </label>
+                    <label class="field-label">Email (lecture seule) / Imèl (sèlman lekti)
+                        <input type="email" id="profilEmail" disabled class="input--muted">
+                    </label>
+                    <h3 class="subsection-title">Seuils alertes glycemie / Seuil alèt glisemi</h3>
+                    <p class="muted small profil-hint">Ces valeurs declenchent les alertes hypo / hyper lorsque vous enregistrez une mesure. Unites : mg/dL.</p>
+                    <div class="form-row">
+                        <label class="field-label">Hypo (bas) / Hypo (ba)
+                            <input type="number" id="profilHypo" min="40" max="150" step="0.01" required>
+                        </label>
+                        <label class="field-label">Hyper (haut) / Hyper (wo)
+                            <input type="number" id="profilHyper" min="80" max="400" step="0.01" required>
+                        </label>
+                    </div>
+                    <button class="btn btn--cta" type="submit">Enregistrer le profil / Anrejistre pwofil</button>
+                </form>
+            </section>
+
+            <section class="card card--elevated">
+                <h2 class="card__title">Rappels navigateur / Rapèl navigatè</h2>
+                <p class="muted small">Les rappels fonctionnent lorsque DiabeteZen est ouvert dans l'onglet (pas en arriere-plan ferme). Format des heures : <code>HH:mm</code>, separees par des virgules.</p>
+                <div class="stack profil-reminders">
+                    <label class="field-label field-label--check">
+                        <input type="checkbox" id="profilBrowserNotify">
+                        Activer les notifications du navigateur / Aktive notifikasyon navigatè a
+                    </label>
+                    <button type="button" class="btn btn--secondary" id="profilRequestNotifyBtn">Demander la permission / Mande pèmisyon</button>
+                    <label class="field-label">Heures mesure glycemie / Lè mezi glisemi
+                        <input type="text" id="profilGlucoseTimes" placeholder="Ex. 08:00, 20:00" autocomplete="off">
+                    </label>
+                    <label class="field-label">Heures repas / Lè manje
+                        <input type="text" id="profilMealTimes" placeholder="Ex. 12:30, 19:00" autocomplete="off">
+                    </label>
+                    <label class="field-label">Heures medicaments / Lè medikaman
+                        <input type="text" id="profilMedTimes" placeholder="Ex. 08:00, 20:00" autocomplete="off">
+                    </label>
+                    <button type="button" class="btn btn--secondary" id="profilSaveRemindersBtn">Enregistrer les rappels / Anrejistre rapèl yo</button>
+                </div>
+            </section>
+
+            <section class="card card--elevated">
+                <h2 class="card__title">Export des donnees / Ekspo done</h2>
+                <p class="muted small">Archive ZIP contenant des fichiers CSV : glycemie, repas, activites, medicaments, prises, alertes.</p>
+                <button type="button" class="btn btn--cta" id="profilExportZipBtn">Telecharger ZIP (CSV) / Telechaje ZIP</button>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="/common.js"></script>
+<script src="/nav.js"></script>
+<script src="/profil.js"></script>
+</body>
+</html>

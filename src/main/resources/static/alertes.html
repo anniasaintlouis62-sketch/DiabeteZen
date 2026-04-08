@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alertes — DiabeteZen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="page-app">
+<div class="app-shell">
+    <aside id="dz-sidebar" class="sidebar"></aside>
+    <div class="app-main">
+        <header class="page-header">
+            <h1 class="page-header__title">Alertes / Alet</h1>
+            <p class="page-header__sub">Hypo, hyper et autres alertes liees a vos mesures / Ipo, iper ak lot alet ki lye ak mezi ou yo.</p>
+        </header>
+        <div class="app-content">
+            <p id="messageBox" class="message hidden"></p>
+            <section class="card card--elevated">
+                <div class="card__head">
+                    <h2 class="card__title">Liste / Lis</h2>
+                    <div class="card__actions">
+                        <button id="exportAlertsPdfBtn" type="button" class="btn btn--secondary btn--sm">Exporter PDF / Ekspo PDF</button>
+                        <button id="refreshAlertsBtn" type="button" class="btn btn--secondary btn--sm">Rafraichir / Aktyalize</button>
+                    </div>
+                </div>
+                <div id="alertsEmpty" class="empty-state">Aucune alerte / Pa gen alet.</div>
+                <ul id="alertsList" class="alert-list hidden"></ul>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="/common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
+<script src="/pdf-export.js"></script>
+<script src="/nav.js"></script>
+<script src="/alertes.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glycémie — DiabeteZen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="page-app">
+<div class="app-shell">
+    <aside id="dz-sidebar" class="sidebar"></aside>
+    <div class="app-main">
+        <header class="page-header">
+            <h1 class="page-header__title">Glycemie / Glisemi</h1>
+            <p class="page-header__sub">Saisissez une mesure et consultez votre historique / Mete yon mezi epi gade listwa ou.</p>
+        </header>
+        <div class="app-content">
+            <p id="messageBox" class="message hidden"></p>
+            <section class="card card--elevated">
+                <h2 class="card__title">Nouvelle mesure / Nouvo mezi</h2>
+                <form id="glucoseForm" class="stack">
+                    <div class="form-row">
+                        <label class="field-label">Valeur (mg/dL) / Valè (mg/dL)
+                            <input type="number" id="glucoseValue" min="1" step="0.01" required>
+                        </label>
+                        <label class="field-label">Date et heure / Dat ak lè
+                            <input type="datetime-local" id="glucoseMeasuredAt" required>
+                        </label>
+                    </div>
+                    <label class="field-label">Contexte / Konteks
+                        <select id="glucoseContext" required>
+                            <option value="fasting">A jeun / Jeèn</option>
+                            <option value="before_meal">Avant repas / Anvan manje</option>
+                            <option value="after_meal_2h">2 h apres repas / 2 è apre manje</option>
+                            <option value="bedtime">Coucher / Kouche</option>
+                            <option value="wakeup">Reveil / Leve</option>
+                            <option value="random">Aleatoire / O aza</option>
+                        </select>
+                    </label>
+                    <label class="field-label">Note / Not
+                        <input type="text" id="glucoseNote" placeholder="Optionnel / Opsyonel">
+                    </label>
+                    <button class="btn btn--cta" type="submit">Enregistrer / Anrejistre</button>
+                </form>
+            </section>
+            <section class="card card--elevated">
+                <div class="card__head">
+                    <h2 class="card__title">Historique / Listwa</h2>
+                    <div class="card__actions">
+                        <button id="exportReadingsPdfBtn" type="button" class="btn btn--secondary btn--sm">Exporter PDF / Ekspo PDF</button>
+                        <button id="refreshReadingsBtn" type="button" class="btn btn--secondary btn--sm">Rafraichir / Aktyalize</button>
+                    </div>
+                </div>
+                <div id="readingsEmpty" class="empty-state">Aucune mesure pour le moment / Pa gen mezi pou kounye a.</div>
+                <div class="table-wrap">
+                    <table id="readingsTable" class="data-table hidden">
+                        <thead>
+                        <tr>
+                            <th>Date / Dat</th>
+                            <th>Valeur / Valè</th>
+                            <th>Contexte / Konteks</th>
+                            <th>Note / Not</th>
+                        </tr>
+                        </thead>
+                        <tbody id="readingsBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="/common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
+<script src="/pdf-export.js"></script>
+<script src="/nav.js"></script>
+<script src="/glycemie.js"></script>
+</body>
+</html>

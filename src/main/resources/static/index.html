@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiabeteZen — Suivi glycémique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="page-landing">
+
+<div id="splashScreen" class="splash" role="dialog" aria-label="Chargement DiabeteZen / Chajman DiabeteZen">
+    <div class="splash__bg"></div>
+    <div class="splash__content">
+        <div class="splash__logo-wrap">
+            <svg class="splash__drop" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <linearGradient id="splashBloodGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#fda4af"/>
+                        <stop offset="55%" stop-color="#e11d48"/>
+                        <stop offset="100%" stop-color="#881337"/>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#splashBloodGrad)" d="M50 8 C50 8 12 48 12 74 C12 94 29 112 50 112 C71 112 88 94 88 74 C88 48 50 8 50 8 Z"/>
+                <ellipse cx="36" cy="58" rx="11" ry="16" fill="rgba(255,255,255,0.28)"/>
+            </svg>
+        </div>
+        <h1 class="splash__brand">Diabete<span>Zen</span></h1>
+        <p class="splash__tagline">Votre sante, en douceur / Sante ou, ak dousè</p>
+        <div class="splash__loader" aria-hidden="true"></div>
+    </div>
+</div>
+
+<div id="appRoot" class="landing app-root app-root--hidden">
+    <header class="landing-top">
+        <a href="/index.html" class="landing-top__brand">
+            <svg class="landing-top__logo" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <linearGradient id="ltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#5eead4"/>
+                        <stop offset="100%" stop-color="#f43f5e"/>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#ltGrad)" d="M50 8 C50 8 12 48 12 74 C12 94 29 112 50 112 C71 112 88 94 88 74 C88 48 50 8 50 8 Z"/>
+            </svg>
+            <span>Diabete<span class="landing-top__zen">Zen</span></span>
+        </a>
+        <div class="landing-top__right">
+            <nav class="landing-top__actions" aria-label="Acces compte / Aksè kont">
+                <a href="/glycemie.html" id="dzGoApp" class="btn btn--ghost-light hidden">Mon espace / Espas mwen</a>
+                <a href="/login.html" class="btn btn--ghost-light">Connexion / Koneksyon</a>
+                <a href="/register.html" class="btn btn--cta">Creer un compte / Kreye yon kont</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="landing-hero">
+            <div class="landing-hero__copy">
+                <p class="landing-hero__kicker">Application de suivi / Aplikasyon swivi</p>
+                <h2 class="landing-hero__title">Prenez soin de votre equilibre glycemique, jour apres jour / Pran swen balans glisemi ou chak jou.</h2>
+                <p class="landing-hero__lead">
+                    Enregistrez vos mesures, repas, activites et traitements. Visualisez vos tendances et recevez des alertes utiles — le tout dans une interface claire et apaisante / Anrejistre mezi, manje, aktivite ak tretman ou. Gade tandans ou epi reserwa alet itil — tout nan yon entefas klè e kal.
+                </p>
+                <div class="landing-hero__ctas">
+                    <a href="/register.html" class="btn btn--cta btn--lg">Commencer gratuitement / Komanse gratis</a>
+                    <a href="/login.html" class="btn btn--outline-light btn--lg">J'ai deja un compte / Mwen deja gen kont</a>
+                </div>
+            </div>
+            <div class="landing-hero__visual" aria-hidden="true">
+                <div class="hero-card hero-card--1">
+                    <span class="hero-card__label">Derniere mesure / Denye mezi</span>
+                    <span class="hero-card__value">108 <small>mg/dL</small></span>
+                </div>
+                <div class="hero-card hero-card--2">
+                    <span class="hero-card__label">Tendance 7 j. / Tandans 7 j.</span>
+                    <span class="hero-card__spark"></span>
+                </div>
+                <div class="hero-card hero-card--3">
+                    <span class="hero-card__label">Repas / Manje</span>
+                    <span class="hero-card__mini">Glucides suivis / Glusid swiv</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="landing-features" aria-labelledby="features-title">
+            <h2 id="features-title" class="landing-section-title">Tout ce dont vous avez besoin / Tout sa ou bezwen</h2>
+            <div class="feature-grid">
+                <article class="feature-tile">
+                    <h3>Mesures & historique / Mezi & listwa</h3>
+                    <p>Saisie rapide avec contexte (a jeun, repas, coucher…) et historique lisible / Antre rapid ak konteks epi listwa fasil pou li.</p>
+                </article>
+                <article class="feature-tile">
+                    <h3>Graphiques / Grafik</h3>
+                    <p>Visualisez l'evolution sur 7, 14 ou 30 jours / Gade evolisyon sou 7, 14 oswa 30 jou.</p>
+                </article>
+                <article class="feature-tile">
+                    <h3>Alertes / Alet</h3>
+                    <p>Notifications hypo / hyper pour reagir au bon moment / Notifikasyon ipo / iper pou reaji a bon moman.</p>
+                </article>
+                <article class="feature-tile">
+                    <h3>Repas, sport, soins / Manje, espò, swen</h3>
+                    <p>Repas, activite physique et traitements reunis dans des pages dediees / Manje, aktivite fizik ak tretman nan paj separe.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        <p>DiabeteZen — outil d'aide au suivi, ne remplace pas un avis medical / zouti swivi ki pa ranplase konsèy medikal.</p>
+    </footer>
+</div>
+
+<script src="/landing.js"></script>
+</body>
+</html>

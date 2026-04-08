@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repas / Manje — DiabeteZen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="page-app">
+<div class="app-shell">
+    <aside id="dz-sidebar" class="sidebar"></aside>
+    <div class="app-main">
+        <header class="page-header">
+            <h1 class="page-header__title">Repas / Manje</h1>
+            <p class="page-header__sub">Enregistrez vos repas et apports en glucides / Anrejistre manje ou ak glikid.</p>
+        </header>
+        <div class="app-content">
+            <p id="messageBox" class="message hidden"></p>
+            <section class="card card--elevated">
+                <h2 class="card__title">Nouveau repas / Nouvo manje</h2>
+                <form id="mealForm" class="stack">
+                    <label class="field-label">Date et heure / Dat ak lè
+                        <input type="datetime-local" id="mealEatenAt" required>
+                    </label>
+                    <label class="field-label">Type / Kalite
+                        <select id="mealType" required>
+                            <option value="breakfast">Petit-dejeuner / Deje a maten</option>
+                            <option value="lunch">Dejeuner / Manje midi</option>
+                            <option value="dinner">Diner / Manje swa</option>
+                            <option value="snack">Collation / Ti goute</option>
+                        </select>
+                    </label>
+                    <label class="field-label">Description / Deskripsyon
+                        <input type="text" id="mealTitle" required placeholder="Ex. salade, pates / Egz. salad, pat">
+                    </label>
+                    <div class="form-row">
+                        <label class="field-label">Glucides (g) / Glikid (g)
+                            <input type="number" id="mealCarbs" min="0" step="0.1" placeholder="Optionnel / Opsyonèl">
+                        </label>
+                        <label class="field-label">Charge glycemique / Chaj glisemik
+                            <input type="number" id="mealGl" min="0" step="0.1" placeholder="Optionnel / Opsyonèl">
+                        </label>
+                    </div>
+                    <label class="field-label">Note / Not
+                        <input type="text" id="mealNote" placeholder="Optionnel / Opsyonèl">
+                    </label>
+                    <button class="btn btn--cta" type="submit">Enregistrer / Anrejistre</button>
+                </form>
+            </section>
+            <section class="card card--elevated">
+                <div class="card__head">
+                    <h2 class="card__title">Derniers repas / Dènye manje</h2>
+                    <div class="card__actions">
+                        <button id="exportMealsPdfBtn" type="button" class="btn btn--secondary btn--sm">Exporter PDF / Ekspo PDF</button>
+                        <button id="refreshMealsBtn" type="button" class="btn btn--secondary btn--sm">Rafraichir / Rafrechi</button>
+                    </div>
+                </div>
+                <div id="mealsEmpty" class="empty-state">Aucun repas enregistre. / Pa gen manje anrejistre.</div>
+                <div class="table-wrap">
+                    <table id="mealsTable" class="data-table hidden">
+                        <thead>
+                        <tr>
+                            <th>Date / Dat</th>
+                            <th>Type / Kalite</th>
+                            <th>Description / Deskripsyon</th>
+                            <th>Glucides / Glikid</th>
+                        </tr>
+                        </thead>
+                        <tbody id="mealsBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="/common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
+<script src="/pdf-export.js"></script>
+<script src="/nav.js"></script>
+<script src="/repas.js"></script>
+</body>
+</html>
