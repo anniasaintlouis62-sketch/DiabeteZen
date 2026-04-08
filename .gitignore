@@ -1,7 +1,7 @@
 target/
 
 # Secrets locaux (ne jamais pousser sur GitHub)
-src/main/resources/application.properties
+src/main/resources/application-secret.properties
 
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
