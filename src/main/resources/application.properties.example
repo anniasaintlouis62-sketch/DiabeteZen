@@ -14,6 +14,7 @@ spring.jpa.open-in-view=false
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 
+
 server.port=8091
 
 app.jwt.secret=REMPLACER_PAR_UNE_CLE_SECRETE_LONGUE_MINIMUM_32_CARACTERES
