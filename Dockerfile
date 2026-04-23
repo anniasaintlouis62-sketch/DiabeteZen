@@ -2,7 +2,7 @@ FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
 COPY . .
 RUN chmod +x mvnw
-ARG CACHEBUST=1
+ARG CACHEBUST=2
 RUN ./mvnw clean package -DskipTests
 
 FROM eclipse-temurin:21-jre
